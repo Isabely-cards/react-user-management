@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "ff97",
+      "name": "joão",
+      "email": "joao@gmail.com",
+      "status": "ativo"
+    },
+    {
+      "id": "80a8",
+      "name": "Maria",
+      "email": "Maria@gmail.com",
+      "status": "ativo"
+    },
+    {
+      "id": "8e72",
+      "name": "Luana",
+      "email": "Luana@gmai.com",
+      "status": "ativo"
+    },
+    {
+      "id": "8ffd",
+      "name": "uiz",
+      "email": "luiz@gmail.com",
+      "status": "inativo"
+    },
+    {
+      "id": "82a3",
+      "name": "victor",
+      "email": "victor@gmail.com",
+      "status": "ativo"
+    }
+  ]
+}
