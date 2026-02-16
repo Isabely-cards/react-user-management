@@ -20,10 +20,10 @@ export const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#90caf9',
+      main: '#b48fe4',
     },
     secondary: {
-      main: '#ce93d8',
+      main: '#86738a',
     },
     background: {
       default: '#121212',
