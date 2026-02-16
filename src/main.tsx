@@ -1,19 +1,10 @@
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import ReactDOM from "react-dom/client";
-import App from "./App";
+import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux'
+import { store } from './store/store'
+import { AppRoutes } from './app/routes'
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#5B2573",
-    },
-  },
-});
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <App />
-  </ThemeProvider>
-);
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <Provider store={store}>
+    <AppRoutes />
+  </Provider>
+)
