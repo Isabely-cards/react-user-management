@@ -9,7 +9,7 @@
     "lint": "eslint src --ext .ts,.tsx",
     "test": "vitest run --project unit",
     "test:watch": "vitest --project unit",
-    "coverage": "vitest run --coverage",
+    "coverage": "vitest run --project unit --coverage",
     "format": "prettier --write .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

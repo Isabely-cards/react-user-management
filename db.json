@@ -4,13 +4,13 @@
       "id": "ff97",
       "name": "joão",
       "email": "joao@gmail.com",
-      "status": "ativo"
+      "status": "inativo"
     },
     {
       "id": "7d5d",
       "name": "Isabely",
       "email": "Isabely@gmail.com.br",
-      "status": "inativo"
+      "status": "ativo"
     }
   ]
 }
