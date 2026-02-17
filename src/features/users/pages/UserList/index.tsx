@@ -23,7 +23,10 @@ import {
   selectUsers,
   useUsersActions,
 } from '../../store/reducers/userSelectors'
-import { UserFormDialog, type UserFormData } from '../../components/UserFormDialog'
+import {
+  UserFormDialog,
+  type UserFormData,
+} from '../../components/UserFormDialog'
 import { UsersHeader } from '../../components/UsersHeader'
 import { UsersSearch } from '../../components/UsersSearch'
 import { UsersTable } from '../../components/UsersTable'
@@ -56,7 +59,6 @@ export default function UserList() {
       setCurrentPage(1)
     }
   }, [filteredUsers.length, totalPages, currentPage])
-
 
   const handleAdd = () => {
     setEditingUser(null)

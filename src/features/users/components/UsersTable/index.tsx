@@ -17,7 +17,6 @@ import {
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import type { User } from '../../types/User'
-import { useEffect } from 'react'
 
 export interface Props {
   users: User[]
