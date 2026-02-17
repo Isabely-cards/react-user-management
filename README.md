@@ -7,8 +7,8 @@ O projeto implementa listagem, criação, edição e remoção de usuários, seg
 ---
 ## Preview
 
-![imagem do sistema versão modo claro](imageSistema.png)
-![imagem do sistema versão modo escuro](imageSistemaEscuro.png)
+<img width="1337" height="633" alt="image" src="https://github.com/user-attachments/assets/aff957a1-d75a-4a08-ad90-40896f5a59b1" />
+<img width="1336" height="629" alt="image" src="https://github.com/user-attachments/assets/6048fa43-6ea6-4545-8863-62fdc2c06114" />
 
 ## Objetivo
 
