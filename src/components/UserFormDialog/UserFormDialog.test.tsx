@@ -71,7 +71,11 @@ describe('UserFormDialog', () => {
         open={false}
         onClose={vi.fn()}
         onSubmit={vi.fn()}
-        defaultValues={{ name: 'Maria', email: 'maria@email.com', status: 'ativo' }}
+        defaultValues={{
+          name: 'Maria',
+          email: 'maria@email.com',
+          status: 'ativo',
+        }}
       />,
     )
 
@@ -80,7 +84,11 @@ describe('UserFormDialog', () => {
         open={true}
         onClose={vi.fn()}
         onSubmit={vi.fn()}
-        defaultValues={{ name: 'João', email: 'joao@email.com', status: 'inativo' }}
+        defaultValues={{
+          name: 'João',
+          email: 'joao@email.com',
+          status: 'inativo',
+        }}
       />,
     )
 

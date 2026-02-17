@@ -1,9 +1,8 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import UserList from '.'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import * as userService from '../../services/userService'
 
-// mocks dos componentes filhos
 vi.mock('../../components/UsersHeader', () => ({
   UsersHeader: ({ onAdd }: any) => <button onClick={onAdd}>Adicionar</button>,
 }))
@@ -30,13 +29,17 @@ vi.mock('../../components/UsersTable', () => ({
   ),
 }))
 vi.mock('../../components/UserFormDialog', () => ({
-  UserFormDialog: ({ open, onClose, onSubmit, defaultValues }: any) =>
+  UserFormDialog: ({ open, onClose, onSubmit }: any) =>
     open ? (
       <div>
         <span>Form aberto</span>
         <button
           onClick={() =>
-            onSubmit({ name: 'Teste', email: 'teste@email.com', status: 'ativo' })
+            onSubmit({
+              name: 'Teste',
+              email: 'teste@email.com',
+              status: 'ativo',
+            })
           }
         >
           Submit
@@ -56,13 +59,14 @@ vi.mock('../../components/DeleteUserDialog', () => ({
     ) : null,
 }))
 
-// ✅ mock do react-redux
 vi.mock('react-redux', () => {
   return {
     useDispatch: () => vi.fn(),
     useSelector: (selector: any) => {
       if (selector.name === 'selectUsers')
-        return [{ id: 1, name: 'João', email: 'joao@email.com', status: 'ativo' }]
+        return [
+          { id: 1, name: 'João', email: 'joao@email.com', status: 'ativo' },
+        ]
       if (selector.name === 'selectLoading') return false
       if (selector.name === 'selectOrder') return {}
       return undefined
@@ -70,7 +74,6 @@ vi.mock('react-redux', () => {
   }
 })
 
-// ✅ mock do userService
 vi.spyOn(userService.userService, 'create').mockResolvedValue({
   id: '2',
   name: 'Teste',
