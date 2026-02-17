@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { DeleteUserDialog } from './index'
+import { fn } from 'storybook/test'
 
 const meta: Meta<typeof DeleteUserDialog> = {
   title: 'Molecules/DeleteUserDialog',
@@ -18,7 +19,7 @@ export const Default: Story = {
   args: {
     open: true,
     userName: 'Isabelly Cardoso',
-    onCancel: () => alert('Cancelado'),
-    onConfirm: async () => alert('Confirmado'),
+    onCancel: fn(),
+    onConfirm: fn(),
   },
 }
