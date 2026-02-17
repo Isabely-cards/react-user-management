@@ -49,6 +49,14 @@ export default function UserList() {
   const filteredUsers = users.filter((user) =>
     user.name.toLowerCase().includes(search.toLowerCase()),
   )
+  const totalPages = Math.ceil(filteredUsers.length / pageSize)
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(1)
+    }
+  }, [filteredUsers.length, totalPages, currentPage])
+
 
   const handleAdd = () => {
     setEditingUser(null)
