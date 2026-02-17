@@ -1,7 +1,7 @@
-import '@testing-library/jest-dom';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
-import { DeleteUserDialog } from '.';
+import '@testing-library/jest-dom'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { describe, it, expect, vi } from 'vitest'
+import { DeleteUserDialog } from '.'
 
 describe('DeleteUserDialog', () => {
   it('renderiza corretamente com nome do usuário', () => {
@@ -33,10 +33,7 @@ describe('DeleteUserDialog', () => {
       />,
     )
 
-    fireEvent.click(
-      screen.getByRole('button', { name: /Cancelar/i })
-    )
-
+    fireEvent.click(screen.getByRole('button', { name: /Cancelar/i }))
 
     expect(onCancel).toHaveBeenCalled()
   })
@@ -53,9 +50,7 @@ describe('DeleteUserDialog', () => {
       />,
     )
 
-    fireEvent.click(
-      screen.getByRole('button', { name: /deletar/i })
-    )
+    fireEvent.click(screen.getByRole('button', { name: /deletar/i }))
 
     expect(onConfirm).toHaveBeenCalled()
   })

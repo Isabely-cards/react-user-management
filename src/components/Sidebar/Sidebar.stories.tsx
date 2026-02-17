@@ -17,7 +17,11 @@ const meta: Meta<typeof Sidebar> = {
     layout: 'fullscreen',
   },
   decorators: [
-    (Story) => <Provider store={store}><Story /></Provider>
+    (Story) => (
+      <Provider store={store}>
+        <Story />
+      </Provider>
+    ),
   ],
   tags: ['autodocs'],
 }
@@ -32,8 +36,12 @@ export const Default: Story = {
 export const DarkModeOn: Story = {
   decorators: [
     (Story) => {
-      store.dispatch(toggleDarkMode()) 
-      return <Provider store={store}><Story /></Provider>
+      store.dispatch(toggleDarkMode())
+      return (
+        <Provider store={store}>
+          <Story />
+        </Provider>
+      )
     },
   ],
   args: {},

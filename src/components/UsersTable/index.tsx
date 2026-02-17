@@ -18,7 +18,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import type { User } from '../../types/User'
 
-interface Props {
+export interface Props {
   users: User[]
   order: 'asc' | 'desc'
   onSort: () => void

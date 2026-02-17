@@ -1,11 +1,11 @@
 import { Stack, Typography, Button } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
 
-interface Props {
+export interface UsersHeaderProps {
   onAdd: () => void
 }
 
-export function UsersHeader({ onAdd }: Props) {
+export function UsersHeader({ onAdd }: UsersHeaderProps) {
   const titleId = 'users-header-title'
 
   return (

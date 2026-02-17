@@ -1,12 +1,12 @@
 import { TextField, Paper, InputAdornment } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 
-interface Props {
+export interface UsersSearchProps {
   value: string
   onChange: (value: string) => void
 }
 
-export function UsersSearch({ value, onChange }: Props) {
+export function UsersSearch({ value, onChange }: UsersSearchProps) {
   const inputId = 'users-search-input'
 
   return (

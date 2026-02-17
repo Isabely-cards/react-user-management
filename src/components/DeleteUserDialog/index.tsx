@@ -9,7 +9,7 @@ import {
   CircularProgress,
 } from '@mui/material'
 
-interface DeleteUserDialogProps {
+export interface DeleteUserDialogProps {
   open: boolean
   userName?: string
   onCancel: () => void
