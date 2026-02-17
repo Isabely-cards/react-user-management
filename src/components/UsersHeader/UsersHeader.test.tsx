@@ -21,7 +21,7 @@ describe('UsersHeader', () => {
     render(<UsersHeader onAdd={onAdd} />)
 
     const button = screen.getByRole('button', {
-      name: /add usuário/i,
+      name: /adicionar novo usuário/i,
     })
 
     await user.click(button)

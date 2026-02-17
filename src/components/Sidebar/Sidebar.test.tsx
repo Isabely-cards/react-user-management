@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { Sidebar } from '.'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
@@ -19,7 +19,7 @@ const renderWithStore = (initialState = { theme: { darkMode: false } }) => {
     ...render(
       <Provider store={store}>
         <Sidebar />
-      </Provider>
+      </Provider>,
     ),
   }
 }

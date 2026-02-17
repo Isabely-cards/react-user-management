@@ -18,12 +18,7 @@ export function UsersHeader({ onAdd }: Props) {
       alignItems="center"
       mb={5}
     >
-      <Typography
-        id={titleId}
-        variant="h4"
-        color="primary"
-        component="h1"
-      >
+      <Typography id={titleId} variant="h4" color="primary" component="h1">
         User Management
       </Typography>
 

@@ -1,115 +1,149 @@
 import { useEffect, useState } from 'react'
-import { Container, CircularProgress, Box, Paper, Stack, Fade } from '@mui/material'
+import {
+  Container,
+  CircularProgress,
+  Box,
+  Paper,
+  Stack,
+  Fade,
+} from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import type { AppDispatch, RootState } from '../../store/store'
-import { fetchUsers, addUser, updateUser, deleteUser, sortUsers } from '../../store/reducers/userSlice'
+import type { AppDispatch } from '../../store/store'
+import {
+  fetchUsers,
+  addUser,
+  updateUser,
+  deleteUser,
+} from '../../store/reducers/userSlice'
 
 import { UsersHeader } from '../../components/UsersHeader'
 import { UsersTable } from '../../components/UsersTable'
 import { UsersSearch } from '../../components/UsersSearch'
-import { UserFormDialog, type UserFormData } from '../../components/UserFormDialog'
+import {
+  UserFormDialog,
+  type UserFormData,
+} from '../../components/UserFormDialog'
 import { DeleteUserDialog } from '../../components/DeleteUserDialog'
 import { userService } from '../../services/userService'
 import type { User } from '../../types/User'
-import { selectLoading, selectOrder, selectUsers, useUsersActions } from '../../store/reducers/userSelectors'
+import {
+  selectLoading,
+  selectOrder,
+  selectUsers,
+  useUsersActions,
+} from '../../store/reducers/userSelectors'
 
 export default function UserList() {
-    const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useDispatch<AppDispatch>()
 
-    const [openForm, setOpenForm] = useState(false)
-    const [editingUser, setEditingUser] = useState<User | null>(null)
-    const [deleteUserState, setDeleteUserState] = useState<User | null>(null)
-    const users = useSelector(selectUsers)
-    const loading = useSelector(selectLoading)
-    const [search, setSearch] = useState('')
-    const [currentPage, setCurrentPage] = useState(1)
-    const [pageSize, setPageSize] = useState(5)
-    const order = useSelector(selectOrder)
-    const { handleSort } = useUsersActions()
-    useEffect(() => {
-        dispatch(fetchUsers())
-    }, [dispatch])
+  const [openForm, setOpenForm] = useState(false)
+  const [editingUser, setEditingUser] = useState<User | null>(null)
+  const [deleteUserState, setDeleteUserState] = useState<User | null>(null)
+  const users = useSelector(selectUsers)
+  const loading = useSelector(selectLoading)
+  const [search, setSearch] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
+  const [pageSize] = useState(5)
+  const order = useSelector(selectOrder)
+  const { handleSort } = useUsersActions()
+  useEffect(() => {
+    dispatch(fetchUsers())
+  }, [dispatch])
 
-    const filteredUsers = users.filter(user =>
-        user.name.toLowerCase().includes(search.toLowerCase())
-    )
+  const filteredUsers = users.filter((user) =>
+    user.name.toLowerCase().includes(search.toLowerCase()),
+  )
 
-    const handleAdd = () => {
-        setEditingUser(null)
-        setOpenForm(true)
+  const handleAdd = () => {
+    setEditingUser(null)
+    setOpenForm(true)
+  }
+
+  const handleEdit = (id: string | number) => {
+    const user = users.find((u) => u.id === id)
+    if (!user) return
+    setEditingUser(user)
+    setOpenForm(true)
+  }
+
+  const handleSubmit = async (data: UserFormData) => {
+    if (editingUser) {
+      const updated = await userService.update({ ...editingUser, ...data })
+      dispatch(updateUser(updated))
+    } else {
+      const created = await userService.create(data)
+      dispatch(addUser(created))
     }
+    setOpenForm(false)
+    setEditingUser(null)
+  }
 
-    const handleEdit = (id: string | number) => {
-        const user = users.find(u => u.id === id)
-        if (!user) return
-        setEditingUser(user)
-        setOpenForm(true)
-    }
+  const handleDeleteConfirm = async () => {
+    if (!deleteUserState) return
+    await userService.delete(deleteUserState.id)
+    dispatch(deleteUser(deleteUserState.id))
+    setDeleteUserState(null)
+  }
 
-    const handleSubmit = async (data: UserFormData) => {
-        if (editingUser) {
-            const updated = await userService.update({ ...editingUser, ...data })
-            dispatch(updateUser(updated))
-        } else {
-            const created = await userService.create(data)
-            dispatch(addUser(created))
-        }
-        setOpenForm(false)
-        setEditingUser(null)
-    }
-
-    const handleDeleteConfirm = async () => {
-        if (!deleteUserState) return
-        await userService.delete(deleteUserState.id)
-        dispatch(deleteUser(deleteUserState.id))
-        setDeleteUserState(null)
-    }
-
-    if (loading) return (
-        <Box display="flex" justifyContent="center" alignItems="center" height="60vh">
-            <CircularProgress size={50} aria-label="Carregando usuários" />
-        </Box>
-    )
-
+  if (loading)
     return (
-        <Container aria-label="Lista de usuários" maxWidth="lg" sx={{ mt: 6, mb: 6, backgroundColor: 'background.default' }}>
-            <Fade in timeout={400}>
-                <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-                    <Stack spacing={3}>
-                        <UsersHeader onAdd={handleAdd} />
-                        <UsersSearch value={search} onChange={setSearch} />
-                        <UsersTable
-                            users={filteredUsers}
-                            order={order}
-                            onSort={handleSort}
-                            onEdit={handleEdit}
-                            onDelete={setDeleteUserState}
-                            currentPage={currentPage}
-                            setCurrentPage={setCurrentPage}
-                            pageSize={pageSize}
-                        />
-                    </Stack>
-                </Paper>
-            </Fade>
-
-            <UserFormDialog
-                open={openForm}
-                onClose={() => setOpenForm(false)}
-                onSubmit={handleSubmit}
-                defaultValues={editingUser ? {
-                    name: editingUser.name,
-                    email: editingUser.email,
-                    status: editingUser.status,
-                } : undefined}
-                isEditing={!!editingUser}
-            />
-
-            <DeleteUserDialog
-                open={!!deleteUserState}
-                userName={deleteUserState?.name}
-                onCancel={() => setDeleteUserState(null)}
-                onConfirm={handleDeleteConfirm}
-            />
-        </Container>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="60vh"
+      >
+        <CircularProgress size={50} aria-label="Carregando usuários" />
+      </Box>
     )
+
+  return (
+    <Container
+      aria-label="Lista de usuários"
+      maxWidth="lg"
+      sx={{ mt: 6, mb: 6, backgroundColor: 'background.default' }}
+    >
+      <Fade in timeout={400}>
+        <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
+          <Stack spacing={3}>
+            <UsersHeader onAdd={handleAdd} />
+            <UsersSearch value={search} onChange={setSearch} />
+            <UsersTable
+              users={filteredUsers}
+              order={order}
+              onSort={handleSort}
+              onEdit={handleEdit}
+              onDelete={setDeleteUserState}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              pageSize={pageSize}
+            />
+          </Stack>
+        </Paper>
+      </Fade>
+
+      <UserFormDialog
+        open={openForm}
+        onClose={() => setOpenForm(false)}
+        onSubmit={handleSubmit}
+        defaultValues={
+          editingUser
+            ? {
+                name: editingUser.name,
+                email: editingUser.email,
+                status: editingUser.status,
+              }
+            : undefined
+        }
+        isEditing={!!editingUser}
+      />
+
+      <DeleteUserDialog
+        open={!!deleteUserState}
+        userName={deleteUserState?.name}
+        onCancel={() => setDeleteUserState(null)}
+        onConfirm={handleDeleteConfirm}
+      />
+    </Container>
+  )
 }

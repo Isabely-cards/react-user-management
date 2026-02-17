@@ -82,9 +82,10 @@ export function UserFormDialog({
         id="user-form-description"
         variant="body2"
         color="textSecondary"
-        sx={{ mb: 2,pl: 3 }}
+        sx={{ mb: 2, pl: 3 }}
       >
-        Preencha os campos abaixo para {isEditing ? 'editar' : 'adicionar'} o usuário.
+        Preencha os campos abaixo para {isEditing ? 'editar' : 'adicionar'} o
+        usuário.
       </Typography>
 
       <DialogContent>
@@ -150,7 +151,11 @@ export function UserFormDialog({
                 disabled={isSubmitting}
                 aria-disabled={isSubmitting}
               >
-                {isSubmitting ? 'Salvando...' : isEditing ? 'Atualizar' : 'Criar'}
+                {isSubmitting
+                  ? 'Salvando...'
+                  : isEditing
+                    ? 'Atualizar'
+                    : 'Criar'}
               </Button>
             </DialogActions>
           </Stack>

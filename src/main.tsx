@@ -6,5 +6,5 @@ import { AppRoutes } from './app/routes'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
     <AppRoutes />
-  </Provider>
+  </Provider>,
 )

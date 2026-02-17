@@ -42,15 +42,10 @@ export function DeleteUserDialog({
       aria-labelledby="delete-dialog-title"
       aria-describedby={descriptionId}
     >
-      <DialogTitle id="delete-dialog-title">
-        Confirmar exclusão
-      </DialogTitle>
+      <DialogTitle id="delete-dialog-title">Confirmar exclusão</DialogTitle>
 
       <DialogContent dividers>
-        <Typography
-          id={descriptionId}
-          component="p"
-        >
+        <Typography id={descriptionId} component="p">
           Tem certeza de que deseja excluir{' '}
           <strong>{userName ?? 'este usuário'}</strong>?
         </Typography>
@@ -68,11 +63,7 @@ export function DeleteUserDialog({
       </DialogContent>
 
       <DialogActions>
-        <Button
-          onClick={onCancel}
-          disabled={loading}
-          autoFocus
-        >
+        <Button onClick={onCancel} disabled={loading} autoFocus>
           Cancelar
         </Button>
 
@@ -83,11 +74,7 @@ export function DeleteUserDialog({
           disabled={loading}
           aria-busy={loading}
         >
-          {loading ? (
-            <CircularProgress size={20} />
-          ) : (
-            'Deletar'
-          )}
+          {loading ? <CircularProgress size={20} /> : 'Deletar'}
         </Button>
       </DialogActions>
     </Dialog>

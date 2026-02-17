@@ -1,6 +1,7 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import { describe, it, expect, vi } from 'vitest'
-import { DeleteUserDialog } from '.'
+import '@testing-library/jest-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import { DeleteUserDialog } from '.';
 
 describe('DeleteUserDialog', () => {
   it('renderiza corretamente com nome do usuário', () => {
@@ -10,11 +11,11 @@ describe('DeleteUserDialog', () => {
         userName="Isabely"
         onCancel={vi.fn()}
         onConfirm={vi.fn()}
-      />
+      />,
     )
 
     expect(
-      screen.getByText(/Tem certeza de que deseja excluir/i)
+      screen.getByText(/Tem certeza de que deseja excluir/i),
     ).toBeInTheDocument()
 
     expect(screen.getByText('Isabely')).toBeInTheDocument()
@@ -29,10 +30,13 @@ describe('DeleteUserDialog', () => {
         userName="Teste"
         onCancel={onCancel}
         onConfirm={vi.fn()}
-      />
+      />,
     )
 
-    fireEvent.click(screen.getByText('Cancelar'))
+    fireEvent.click(
+      screen.getByRole('button', { name: /Cancelar/i })
+    )
+
 
     expect(onCancel).toHaveBeenCalled()
   })
@@ -46,10 +50,12 @@ describe('DeleteUserDialog', () => {
         userName="Teste"
         onCancel={vi.fn()}
         onConfirm={onConfirm}
-      />
+      />,
     )
 
-    fireEvent.click(screen.getByText('Deletar'))
+    fireEvent.click(
+      screen.getByRole('button', { name: /deletar/i })
+    )
 
     expect(onConfirm).toHaveBeenCalled()
   })

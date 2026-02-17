@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
 import { UsersSearch } from '.'
 
@@ -14,11 +14,6 @@ export const Default: Story = {
   render: () => {
     const [value, setValue] = useState('')
 
-    return (
-      <UsersSearch
-        value={value}
-        onChange={setValue}
-      />
-    )
+    return <UsersSearch value={value} onChange={setValue} />
   },
 }

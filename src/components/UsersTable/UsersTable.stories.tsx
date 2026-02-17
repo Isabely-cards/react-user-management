@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { UsersTable } from '.'
 import type { User } from '../../types/User'
 import { useState } from 'react'

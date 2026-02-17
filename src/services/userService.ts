@@ -9,10 +9,10 @@ export const userService = {
   getAll: async (
     search?: string,
     page?: number,
-    pageSize?: number
+    pageSize?: number,
   ): Promise<User[]> => {
     const response = await api.get('/users', {
-      params: { q: search, page, pageSize }
+      params: { q: search, page, pageSize },
     })
     return response.data
   },

@@ -1,4 +1,13 @@
-import { Drawer, List, ListItemButton, ListItemIcon, ListItemText, IconButton, Stack, Typography } from '@mui/material'
+import {
+  Drawer,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  IconButton,
+  Stack,
+  Typography,
+} from '@mui/material'
 import PeopleIcon from '@mui/icons-material/People'
 import Brightness4Icon from '@mui/icons-material/Brightness4'
 import Brightness7Icon from '@mui/icons-material/Brightness7'
@@ -46,9 +55,7 @@ export function Sidebar() {
           sx={{ p: 2 }}
         >
           <Typography variant="h6">Menu</Typography>
-          <IconButton onClick={() => setOpen(false)}>
-            {'<'}
-          </IconButton>
+          <IconButton onClick={() => setOpen(false)}>{'<'}</IconButton>
         </Stack>
 
         <List>
@@ -60,7 +67,12 @@ export function Sidebar() {
           </ListItemButton>
         </List>
 
-        <Stack sx={{ mt: 'auto', p: 2 }} direction="row" alignItems="center" spacing={1}>
+        <Stack
+          sx={{ mt: 'auto', p: 2 }}
+          direction="row"
+          alignItems="center"
+          spacing={1}
+        >
           <IconButton
             onClick={() => dispatch(toggleDarkMode())}
             color="inherit"
@@ -68,7 +80,9 @@ export function Sidebar() {
           >
             {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
-          <Typography variant="body2">{darkMode ? 'Modo Escuro' : 'Modo Claro'}</Typography>
+          <Typography variant="body2">
+            {darkMode ? 'Modo Escuro' : 'Modo Claro'}
+          </Typography>
         </Stack>
       </Drawer>
     </>

@@ -1,4 +1,8 @@
-import { createSlice, createAsyncThunk, type PayloadAction } from '@reduxjs/toolkit'
+import {
+  createSlice,
+  createAsyncThunk,
+  type PayloadAction,
+} from '@reduxjs/toolkit'
 import { userService } from '../../services/userService'
 import type { User } from '../../types/User'
 
@@ -29,27 +33,33 @@ const userSlice = createSlice({
       state.users.sort((a, b) =>
         state.order === 'asc'
           ? a.name.localeCompare(b.name)
-          : b.name.localeCompare(a.name)
+          : b.name.localeCompare(a.name),
       )
     },
     addUser(state, action: PayloadAction<User>) {
       state.users.push(action.payload)
     },
     updateUser(state, action: PayloadAction<User>) {
-      state.users = state.users.map(u => u.id === action.payload.id ? action.payload : u)
+      state.users = state.users.map((u) =>
+        u.id === action.payload.id ? action.payload : u,
+      )
     },
     deleteUser(state, action: PayloadAction<string | number>) {
-      state.users = state.users.filter(u => u.id !== action.payload)
+      state.users = state.users.filter((u) => u.id !== action.payload)
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(fetchUsers.pending, state => { state.loading = true })
+      .addCase(fetchUsers.pending, (state) => {
+        state.loading = true
+      })
       .addCase(fetchUsers.fulfilled, (state, action: PayloadAction<User[]>) => {
         state.users = action.payload
         state.loading = false
       })
-      .addCase(fetchUsers.rejected, state => { state.loading = false })
+      .addCase(fetchUsers.rejected, (state) => {
+        state.loading = false
+      })
   },
 })
 
