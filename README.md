@@ -5,6 +5,7 @@ Aplicação de gerenciamento de usuários desenvolvida como solução para teste
 O projeto implementa listagem, criação, edição e remoção de usuários, seguindo boas práticas de arquitetura, acessibilidade e testes automatizados.
 
 ---
+
 ## Preview
 
 <img width="1337" height="633" alt="image" src="https://github.com/user-attachments/assets/aff957a1-d75a-4a08-ad90-40896f5a59b1" />
@@ -24,6 +25,7 @@ Construir uma aplicação front-end moderna com:
 - Acessibilidade básica
 
 ---
+
 ## Arquitetura
 
 O projeto foi estruturado utilizando:
@@ -41,45 +43,45 @@ Testes isolando dependências externas
 Estrutura simplificada:
 <img width="747" height="760" alt="image" src="https://github.com/user-attachments/assets/49b71f0f-518b-4dd9-a395-a81cb6b6bef7" />
 src/
- ├── app/
- │     └── routes.tsx
- │
- ├── features/
- │     └── users/
- │           ├── components/
- │           │     ├── DeleteUserDialog/
- │           │     ├── Sidebar/
- │           │     ├── UserFormDialog/
- │           │     ├── UsersHeader/
- │           │     ├── UsersSearch/
- │           │     └── UsersTable/
- │           │
- │           ├── pages/
- │           │     └── UserList/
- │           │           ├── index.tsx
- │           │           └── UserList.test.tsx
- │           │
- │           ├── store/
- │           │     ├── userSlice.ts
- │           │     └── userSelectors.ts
- │           │
- │           ├── schema/
- │           │     └── schemaCreateUser.ts
- │           │
- │           └── types/
- │                 └── User.ts
- |
- │── services/
- │     └── userService.ts
- |
- ├── store/
- │     └── store.ts
- |     └── themeSlice.ts
- │
- ├── theme/
- │
- ├── main.tsx
- └── setupTests.ts
+├── app/
+│ └── routes.tsx
+│
+├── features/
+│ └── users/
+│ ├── components/
+│ │ ├── DeleteUserDialog/
+│ │ ├── Sidebar/
+│ │ ├── UserFormDialog/
+│ │ ├── UsersHeader/
+│ │ ├── UsersSearch/
+│ │ └── UsersTable/
+│ │
+│ ├── pages/
+│ │ └── UserList/
+│ │ ├── index.tsx
+│ │ └── UserList.test.tsx
+│ │
+│ ├── store/
+│ │ ├── userSlice.ts
+│ │ └── userSelectors.ts
+│ │
+│ ├── schema/
+│ │ └── schemaCreateUser.ts
+│ │
+│ └── types/
+│ └── User.ts
+|
+│── services/
+│ └── userService.ts
+|
+├── store/
+│ └── store.ts
+| └── themeSlice.ts
+│
+├── theme/
+│
+├── main.tsx
+└── setupTests.ts
 
 ## Tecnologias Utilizadas
 
@@ -95,6 +97,7 @@ src/
 ---
 
 ## RODAR db.json
+
 Instale globalmente (caso não tenha):
 
 npm install -g json-server
