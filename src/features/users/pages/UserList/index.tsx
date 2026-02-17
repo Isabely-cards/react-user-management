@@ -23,7 +23,10 @@ import {
   selectUsers,
   useUsersActions,
 } from '../../store/reducers/userSelectors'
-import { UserFormDialog, type UserFormData } from '../../components/UserFormDialog'
+import {
+  UserFormDialog,
+  type UserFormData,
+} from '../../components/UserFormDialog'
 import { UsersHeader } from '../../components/UsersHeader'
 import { UsersSearch } from '../../components/UsersSearch'
 import { UsersTable } from '../../components/UsersTable'
@@ -49,6 +52,13 @@ export default function UserList() {
   const filteredUsers = users.filter((user) =>
     user.name.toLowerCase().includes(search.toLowerCase()),
   )
+  const totalPages = Math.ceil(filteredUsers.length / pageSize)
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(1)
+    }
+  }, [filteredUsers.length, totalPages, currentPage])
 
   const handleAdd = () => {
     setEditingUser(null)
