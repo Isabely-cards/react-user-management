@@ -8,23 +8,14 @@ import {
   Fade,
 } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import type { AppDispatch } from '../../store/store'
+import type { AppDispatch } from '../../../../store/store'
 import {
   fetchUsers,
   addUser,
   updateUser,
   deleteUser,
 } from '../../store/reducers/userSlice'
-
-import { UsersHeader } from '../../components/UsersHeader'
-import { UsersTable } from '../../components/UsersTable'
-import { UsersSearch } from '../../components/UsersSearch'
-import {
-  UserFormDialog,
-  type UserFormData,
-} from '../../components/UserFormDialog'
-import { DeleteUserDialog } from '../../components/DeleteUserDialog'
-import { userService } from '../../services/userService'
+import { userService } from '../../../../services/userService'
 import type { User } from '../../types/User'
 import {
   selectLoading,
@@ -32,6 +23,11 @@ import {
   selectUsers,
   useUsersActions,
 } from '../../store/reducers/userSelectors'
+import { UserFormDialog, type UserFormData } from '../../components/UserFormDialog'
+import { UsersHeader } from '../../components/UsersHeader'
+import { UsersSearch } from '../../components/UsersSearch'
+import { UsersTable } from '../../components/UsersTable'
+import { DeleteUserDialog } from '../../components/DeleteUserDialog'
 
 export default function UserList() {
   const dispatch = useDispatch<AppDispatch>()

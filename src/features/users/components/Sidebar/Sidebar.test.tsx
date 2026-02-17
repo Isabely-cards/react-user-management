@@ -4,7 +4,7 @@ import { describe, it, expect } from 'vitest'
 import { Sidebar } from '.'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
-import themeReducer from '../../store/reducers/themeSlice'
+import themeReducer from '../../../../store/themeSlice'
 
 // Cria um store de teste
 const renderWithStore = (initialState = { theme: { darkMode: false } }) => {
