@@ -40,8 +40,6 @@ Testes isolando dependências externas
 
 Estrutura simplificada:
 <img width="747" height="760" alt="image" src="https://github.com/user-attachments/assets/49b71f0f-518b-4dd9-a395-a81cb6b6bef7" />
-<img width="747" height="760" alt="image" src="https://github.com/user-attachments/assets/49b71f0f-518b-4dd9-a395-a81cb6b6bef7" />
-
 src/
  ├── app/
  │     └── routes.tsx
