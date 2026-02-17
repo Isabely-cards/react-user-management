@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1771271178458" clover="3.2.0">
+  <project timestamp="1771271178458" name="All files">
+    <metrics statements="43" coveredstatements="31" conditionals="16" coveredconditionals="14" methods="19" coveredmethods="11" elements="78" coveredelements="56" complexity="0" loc="43" ncloc="43" packages="7" files="12" classes="12"/>
+    <package name="isa">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="react-user-management" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="isa.react-user-management..storybook">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="preview.ts" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management\.storybook\preview.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="isa.react-user-management.src.components.DeleteUserDialog">
+      <metrics statements="9" coveredstatements="5" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="1"/>
+      <file name="index.tsx" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management\src\components\DeleteUserDialog\index.tsx">
+        <metrics statements="9" coveredstatements="5" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="isa.react-user-management.src.components.UsersHeader">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management\src\components\UsersHeader\index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="isa.react-user-management.src.components.UsersSearch">
+      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="index.tsx" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management\src\components\UsersSearch\index.tsx">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="isa.react-user-management.src.components.UsersTable">
+      <metrics statements="14" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="4"/>
+      <file name="index.tsx" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management\src\components\UsersTable\index.tsx">
+        <metrics statements="14" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="4"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="73" count="2" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="122" count="0" type="stmt"/>
+        <line num="126" count="3" type="stmt"/>
+        <line num="136" count="0" type="stmt"/>
+        <line num="138" count="3" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="isa.react-user-management.src.stories">
+      <metrics statements="14" coveredstatements="12" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="4"/>
+      <file name="Button.tsx" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management\src\stories\Button.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="26" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="12" type="stmt"/>
+      </file>
+      <file name="Header.tsx" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management\src\stories\Header.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+      </file>
+      <file name="Page.tsx" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management\src\stories\Page.tsx">
+        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+      </file>
+      <file name="button.css" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management\src\stories\button.css">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="header.css" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management\src\stories\header.css">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="page.css" path="C:\Users\Isabelly Cardoso\Documents\isa\react-user-management\src\stories\page.css">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+  </project>
+</coverage>
