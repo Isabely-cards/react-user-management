@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { UsersSearch } from '.'
 
 const meta: Meta<typeof UsersSearch> = {
-  title: 'Components/UsersSearch',
+  title: 'Atoms/UsersSearch',
   component: UsersSearch,
 }
 

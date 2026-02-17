@@ -9,7 +9,7 @@ const users: User[] = [
 ]
 
 const meta: Meta<typeof UsersTable> = {
-  title: 'Components/UsersTable',
+  title: 'Organisms/UsersTable',
   component: UsersTable,
 }
 

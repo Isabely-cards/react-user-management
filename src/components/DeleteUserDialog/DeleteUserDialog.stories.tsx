@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { DeleteUserDialog } from './index'
 
 const meta: Meta<typeof DeleteUserDialog> = {
-  title: 'Components/DeleteUserDialog',
+  title: 'Molecules/DeleteUserDialog',
   component: DeleteUserDialog,
   parameters: {
     layout: 'centered',
