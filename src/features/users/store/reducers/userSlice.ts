@@ -3,7 +3,7 @@ import {
   createAsyncThunk,
   type PayloadAction,
 } from '@reduxjs/toolkit'
-import { userService } from '../../services/userService'
+import { userService } from '../../../../services/userService'
 import type { User } from '../../types/User'
 
 type Order = 'asc' | 'desc'

@@ -5,6 +5,10 @@ Aplicação de gerenciamento de usuários desenvolvida como solução para teste
 O projeto implementa listagem, criação, edição e remoção de usuários, seguindo boas práticas de arquitetura, acessibilidade e testes automatizados.
 
 ---
+## Preview
+
+![imagem do sistema versão modo claro](imageSistema.png)
+![imagem do sistema versão modo escuro](imageSistemaEscuro.png)
 
 ## Objetivo
 
@@ -20,6 +24,62 @@ Construir uma aplicação front-end moderna com:
 - Acessibilidade básica
 
 ---
+## Arquitetura
+
+O projeto foi estruturado utilizando:
+
+Separação por feature-based structure pensando em crescer o sistema
+
+Redux Toolkit para gerenciamento de estado global
+
+Camada de services para comunicação com API
+
+Componentes desacoplados e testáveis
+
+Testes isolando dependências externas
+
+Estrutura simplificada:
+
+src/
+ ├── app/
+ │     └── routes.tsx
+ │
+ ├── features/
+ │     └── users/
+ │           ├── components/
+ │           │     ├── DeleteUserDialog/
+ │           │     ├── Sidebar/
+ │           │     ├── UserFormDialog/
+ │           │     ├── UsersHeader/
+ │           │     ├── UsersSearch/
+ │           │     └── UsersTable/
+ │           │
+ │           ├── pages/
+ │           │     └── UserList/
+ │           │           ├── index.tsx
+ │           │           └── UserList.test.tsx
+ │           │
+ │           ├── store/
+ │           │     ├── userSlice.ts
+ │           │     └── userSelectors.ts
+ │           │
+ │           ├── schema/
+ │           │     └── schemaCreateUser.ts
+ │           │
+ │           └── types/
+ │                 └── User.ts
+ |
+ │── services/
+ │     └── userService.ts
+ |
+ ├── store/
+ │     └── store.ts
+ |     └── themeSlice.ts
+ │
+ ├── theme/
+ │
+ ├── main.tsx
+ └── setupTests.ts
 
 ## Tecnologias Utilizadas
 
@@ -35,6 +95,9 @@ Construir uma aplicação front-end moderna com:
 ---
 
 ## RODAR db.json
+Instale globalmente (caso não tenha):
+
+npm install -g json-server
 
 json-server --watch db.json --port 3001
 

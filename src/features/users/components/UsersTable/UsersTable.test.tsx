@@ -48,7 +48,6 @@ describe('UsersTable', () => {
     const editButton = screen.getByLabelText(/Editar usuário Maria/i)
     await user.click(editButton)
 
-    // 👀 IDs são strings agora
     expect(onEdit).toHaveBeenCalledWith('1')
   })
 
