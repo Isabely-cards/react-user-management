@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { User } from '../types/User'
+import type { User } from '../features/users/types/User'
 
 const api = axios.create({
   baseURL: 'http://localhost:3001',

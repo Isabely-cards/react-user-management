@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Sidebar } from '.'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
-import themeReducer, { toggleDarkMode } from '../../store/reducers/themeSlice'
+import themeReducer, { toggleDarkMode } from '../../../../store/themeSlice'
 
 const store = configureStore({
   reducer: {

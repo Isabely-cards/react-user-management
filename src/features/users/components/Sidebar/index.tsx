@@ -15,7 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import type { AppDispatch, RootState } from '../../store/store'
-import { toggleDarkMode } from '../../store/reducers/themeSlice'
+import { toggleDarkMode } from '../../../../store/themeSlice'
 
 export function Sidebar() {
   const dispatch = useDispatch<AppDispatch>()

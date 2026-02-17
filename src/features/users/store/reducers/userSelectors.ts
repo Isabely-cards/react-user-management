@@ -1,4 +1,4 @@
-import type { RootState, AppDispatch } from '../store'
+import type { RootState, AppDispatch } from '../../../../store/store'
 import { sortUsers } from './userSlice'
 import { useDispatch } from 'react-redux'
 
