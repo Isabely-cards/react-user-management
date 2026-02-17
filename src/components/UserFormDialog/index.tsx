@@ -21,7 +21,7 @@ export interface UserFormData {
   status: 'ativo' | 'inativo'
 }
 
-interface UserFormDialogProps {
+export interface UserFormDialogProps {
   open: boolean
   onClose: () => void
   onSubmit: (data: UserFormData) => Promise<void>

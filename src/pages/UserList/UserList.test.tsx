@@ -2,12 +2,20 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import UserList from '.'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import * as userService from '../../services/userService'
+import type { DeleteUserDialogProps } from '../../components/DeleteUserDialog'
+import type { Props } from '../../components/UsersTable'
+import type { UsersSearchProps } from '../../components/UsersSearch'
+import type { User } from '../../types/User'
+import type { UsersHeaderProps } from '../../components/UsersHeader'
+import type { UserFormDialogProps } from '../../components/UserFormDialog'
 
 vi.mock('../../components/UsersHeader', () => ({
-  UsersHeader: ({ onAdd }: any) => <button onClick={onAdd}>Adicionar</button>,
+  UsersHeader: ({ onAdd }: UsersHeaderProps) => (
+    <button onClick={onAdd}>Adicionar</button>
+  ),
 }))
 vi.mock('../../components/UsersSearch', () => ({
-  UsersSearch: ({ value, onChange }: any) => (
+  UsersSearch: ({ value, onChange }: UsersSearchProps) => (
     <input
       aria-label="search"
       value={value}
@@ -16,9 +24,9 @@ vi.mock('../../components/UsersSearch', () => ({
   ),
 }))
 vi.mock('../../components/UsersTable', () => ({
-  UsersTable: ({ users, onEdit, onDelete }: any) => (
+  UsersTable: ({ users, onEdit, onDelete }: Props) => (
     <div>
-      {users.map((u: any) => (
+      {users.map((u: User) => (
         <div key={u.id}>
           <span>{u.name}</span>
           <button onClick={() => onEdit(u.id)}>Editar</button>
@@ -29,7 +37,7 @@ vi.mock('../../components/UsersTable', () => ({
   ),
 }))
 vi.mock('../../components/UserFormDialog', () => ({
-  UserFormDialog: ({ open, onClose, onSubmit }: any) =>
+  UserFormDialog: ({ open, onClose, onSubmit }: UserFormDialogProps) =>
     open ? (
       <div>
         <span>Form aberto</span>
@@ -49,7 +57,12 @@ vi.mock('../../components/UserFormDialog', () => ({
     ) : null,
 }))
 vi.mock('../../components/DeleteUserDialog', () => ({
-  DeleteUserDialog: ({ open, onCancel, onConfirm, userName }: any) =>
+  DeleteUserDialog: ({
+    open,
+    onCancel,
+    onConfirm,
+    userName,
+  }: DeleteUserDialogProps) =>
     open ? (
       <div>
         <span>Deletar {userName}</span>
