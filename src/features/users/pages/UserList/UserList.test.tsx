@@ -2,12 +2,12 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import UserList from '.'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import * as userService from '../../../../services/userService'
-import type { DeleteUserDialogProps } from '../../../../components/DeleteUserDialog'
-import type { Props } from '../../../../components/UsersTable'
-import type { UsersSearchProps } from '../../../../components/UsersSearch'
 import type { User } from '../../types/User'
-import type { UsersHeaderProps } from '../../../../components/UsersHeader'
-import type { UserFormDialogProps } from '../../../../components/UserFormDialog'
+import type { UsersHeaderProps } from '../../components/UsersHeader'
+import type { UsersSearchProps } from '../../components/UsersSearch'
+import type { Props } from '../../components/UsersTable'
+import type { UserFormDialogProps } from '../../components/UserFormDialog'
+import type { DeleteUserDialogProps } from '../../components/DeleteUserDialog'
 
 vi.mock('../../components/UsersHeader', () => ({
   UsersHeader: ({ onAdd }: UsersHeaderProps) => (
