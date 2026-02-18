@@ -107,11 +107,22 @@ export default function UserList() {
     <Container
       aria-label="Lista de usuários"
       maxWidth="lg"
-      sx={{ mt: 6, mb: 6, backgroundColor: 'background.default' }}
+      sx={{
+        backgroundColor: 'background.default',
+        mt: { xs: 2, sm: 4, md: 6 },
+        mb: { xs: 2, sm: 4, md: 6 },
+        px: { xs: 2, sm: 3 },
+      }}
     >
       <Fade in timeout={400}>
-        <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-          <Stack spacing={3}>
+        <Paper
+          elevation={3}
+          sx={{
+            p: { xs: 2, sm: 3, md: 4 },
+            borderRadius: { xs: 2, md: 3 },
+          }}
+        >
+          <Stack spacing={{ xs: 2, sm: 3 }}>
             <UsersHeader onAdd={handleAdd} />
             <UsersSearch value={search} onChange={setSearch} />
             <UsersTable
