@@ -14,8 +14,8 @@ import Brightness7Icon from '@mui/icons-material/Brightness7'
 import MenuIcon from '@mui/icons-material/Menu'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
-import type { AppDispatch, RootState } from '../../store/store'
 import { toggleDarkMode } from '../../../../store/themeSlice'
+import type { AppDispatch, RootState } from '../../../../store/store'
 
 export function Sidebar() {
   const dispatch = useDispatch<AppDispatch>()
