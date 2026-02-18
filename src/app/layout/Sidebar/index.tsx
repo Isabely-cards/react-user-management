@@ -7,6 +7,8 @@ import {
   IconButton,
   Stack,
   Typography,
+  useTheme,
+  useMediaQuery,
 } from '@mui/material'
 import PeopleIcon from '@mui/icons-material/People'
 import Brightness4Icon from '@mui/icons-material/Brightness4'
@@ -17,33 +19,41 @@ import { useState } from 'react'
 import { toggleDarkMode } from '../../../store/themeSlice'
 import type { AppDispatch, RootState } from '../../../store/store'
 
+const drawerWidth = 240
+
 export function Sidebar() {
   const dispatch = useDispatch<AppDispatch>()
   const darkMode = useSelector((state: RootState) => state.theme.darkMode)
-  const [open, setOpen] = useState(true)
+
+  const [open, setOpen] = useState(false)
+
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+
+  const handleToggle = () => setOpen(!open)
 
   return (
     <>
-      {!open && (
+      {isMobile && !open && (
         <IconButton
-          onClick={() => setOpen(true)}
+          aria-label="abrir menu"
+          onClick={handleToggle}
           sx={{ position: 'fixed', top: 16, left: 16, zIndex: 2000 }}
-          color="inherit"
-          aria-label="Abrir menu"
         >
           <MenuIcon />
         </IconButton>
       )}
 
       <Drawer
-        variant="persistent"
-        anchor="left"
-        open={open}
+        variant={isMobile ? 'temporary' : 'persistent'}
+        open={isMobile ? open : true}
+        onClose={() => setOpen(false)}
+        ModalProps={{
+          keepMounted: true,
+        }}
         sx={{
-          width: 240,
-          flexShrink: 0,
           '& .MuiDrawer-paper': {
-            width: 240,
+            width: drawerWidth,
             boxSizing: 'border-box',
           },
         }}
@@ -55,7 +65,12 @@ export function Sidebar() {
           sx={{ p: 2 }}
         >
           <Typography variant="h6">Menu</Typography>
-          <IconButton onClick={() => setOpen(false)}>{'<'}</IconButton>
+
+          {isMobile && (
+            <IconButton aria-label="fechar menu" onClick={() => setOpen(false)}>
+              {'<'}
+            </IconButton>
+          )}
         </Stack>
 
         <List>
@@ -74,9 +89,9 @@ export function Sidebar() {
           spacing={1}
         >
           <IconButton
+            aria-label={darkMode ? 'Ativar modo claro' : 'Ativar modo escuro'}
             onClick={() => dispatch(toggleDarkMode())}
             color="inherit"
-            aria-label={darkMode ? 'Ativar modo claro' : 'Ativar modo escuro'}
           >
             {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>

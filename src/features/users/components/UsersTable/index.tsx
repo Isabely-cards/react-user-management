@@ -13,6 +13,7 @@ import {
   Select,
   Pagination,
   MenuItem,
+  TableContainer,
 } from '@mui/material'
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
@@ -46,54 +47,65 @@ export function UsersTable({
 
   return (
     <Paper sx={{ borderRadius: 2, overflow: 'hidden' }}>
-      <Table aria-label="Tabela de usuários cadastrados">
-        <TableHead sx={{ backgroundColor: 'secondary.main' }}>
-          <TableRow>
-            <TableCell sortDirection={order}>
-              <TableSortLabel direction={order} active onClick={onSort}>
-                Nome
-              </TableSortLabel>
-            </TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Status</TableCell>
-            <TableCell>Ações</TableCell>
-          </TableRow>
-        </TableHead>
-
-        <TableBody>
-          {paginatedUsers.map((user) => (
-            <TableRow key={user.id} hover>
-              <TableCell>{user.name}</TableCell>
-              <TableCell>{user.email}</TableCell>
-              <TableCell>
-                <Chip
-                  label={user.status}
-                  size="small"
-                  color={user.status === 'ativo' ? 'success' : 'error'}
-                />
+      <TableContainer
+        sx={{
+          width: '100%',
+          overflowX: 'auto',
+        }}
+      >
+        <Table
+          aria-label="Tabela de usuários cadastrados"
+          sx={{ minWidth: 650 }}  
+        >
+          <TableHead sx={{ backgroundColor: 'secondary.main' }}>
+            <TableRow>
+              <TableCell sortDirection={order}>
+                <TableSortLabel direction={order} active onClick={onSort}>
+                  Nome
+                </TableSortLabel>
               </TableCell>
-              <TableCell>
-                <IconButton
-                  onClick={() => onEdit(user.id)}
-                  aria-label={`Editar usuário ${user.name}`}
-                >
-                  <EditIcon />
-                </IconButton>
-                <IconButton
-                  onClick={() => onDelete(user)}
-                  aria-label={`Excluir usuário ${user.name}`}
-                >
-                  <DeleteForeverIcon />
-                </IconButton>
-              </TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell>Ações</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+
+          <TableBody>
+            {paginatedUsers.map((user) => (
+              <TableRow key={user.id} hover>
+                <TableCell>{user.name}</TableCell>
+                <TableCell>{user.email}</TableCell>
+                <TableCell>
+                  <Chip
+                    label={user.status}
+                    size="small"
+                    color={user.status === 'ativo' ? 'success' : 'error'}
+                  />
+                </TableCell>
+                <TableCell>
+                  <IconButton
+                    onClick={() => onEdit(user.id)}
+                    aria-label={`Editar usuário ${user.name}`}
+                  >
+                    <EditIcon />
+                  </IconButton>
+                  <IconButton
+                    onClick={() => onDelete(user)}
+                    aria-label={`Excluir usuário ${user.name}`}
+                  >
+                    <DeleteForeverIcon />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
       <Stack
-        direction="row"
+        direction={{ xs: 'column', sm: 'row' }}
+        spacing={2}
         justifyContent="space-between"
-        alignItems="center"
+        alignItems={{ xs: 'center', sm: 'center' }}
         sx={{ mt: 3, p: 2 }}
       >
         <Stack direction="row" alignItems="center" spacing={1}>

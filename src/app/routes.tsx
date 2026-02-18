@@ -15,12 +15,34 @@ export function AppRoutes() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <Box display="flex">
+        <Box sx={{ display: 'flex' }}>
           <Sidebar />
-          <Box component="main" flexGrow={1} p={3}>
-            <Routes>
-              <Route path="/" element={<UserList />} />
-            </Routes>
+          <Box
+            component="main"
+            sx={{
+              flexGrow: 1,
+              display: 'flex',
+              justifyContent: 'center',
+              px: 2,
+              ml: { md: '240px' },
+
+              height: '100vh',       
+              overflow: 'hidden',     
+            }}
+          >
+            <Box
+              sx={{
+                width: '100%',
+                maxWidth: '1200px',
+                height: '100%',
+                overflow: 'auto',  
+                py: 4,
+              }}
+            >
+              <Routes>
+                <Route path="/" element={<UserList />} />
+              </Routes>
+            </Box>
           </Box>
         </Box>
       </BrowserRouter>
