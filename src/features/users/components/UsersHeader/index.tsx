@@ -13,12 +13,21 @@ export function UsersHeader({ onAdd }: UsersHeaderProps) {
       component="header"
       role="region"
       aria-labelledby={titleId}
-      direction="row"
+      direction={{ xs: 'column', sm: 'row' }}
+      spacing={2}
       justifyContent="space-between"
-      alignItems="center"
-      mb={5}
+      alignItems={{ xs: 'flex-start', sm: 'center' }}
+      mb={{ xs: 5, md: 5 }}
     >
-      <Typography id={titleId} variant="h4" color="primary" component="h1">
+      <Typography
+        id={titleId}
+        variant="h4"
+        color="primary"
+        component="h1"
+        sx={{
+          fontSize: { xs: '1.5rem', sm: '2rem' },
+        }}
+      >
         User Management
       </Typography>
 
@@ -26,6 +35,9 @@ export function UsersHeader({ onAdd }: UsersHeaderProps) {
         variant="contained"
         startIcon={<AddIcon />}
         onClick={onAdd}
+        sx={{
+          alignSelf: { xs: 'stretch', sm: 'auto' },
+        }}
         aria-label="Adicionar novo usuário"
       >
         Add Usuário
