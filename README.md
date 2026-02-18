@@ -14,6 +14,7 @@ O projeto implementa listagem, criação, edição e remoção de usuários, seg
 ## LINK VERSEL
 
 https://react-user-management-five.vercel.app/
+para dar certo tem que rodar localmmente o db.json
 
 ## Objetivo
 
