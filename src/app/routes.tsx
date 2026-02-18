@@ -26,8 +26,8 @@ export function AppRoutes() {
               px: 2,
               ml: { md: '240px' },
 
-              height: '100vh',       
-              overflow: 'hidden',     
+              height: '100vh',
+              overflow: 'hidden',
             }}
           >
             <Box
@@ -35,7 +35,7 @@ export function AppRoutes() {
                 width: '100%',
                 maxWidth: '1200px',
                 height: '100%',
-                overflow: 'auto',  
+                overflow: 'auto',
                 py: 4,
               }}
             >

@@ -55,7 +55,7 @@ export function UsersTable({
       >
         <Table
           aria-label="Tabela de usuários cadastrados"
-          sx={{ minWidth: 650 }}  
+          sx={{ minWidth: 650 }}
         >
           <TableHead sx={{ backgroundColor: 'secondary.main' }}>
             <TableRow>

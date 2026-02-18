@@ -115,13 +115,14 @@ export default function UserList() {
       }}
     >
       <Fade in timeout={400}>
-        <Paper elevation={3}
+        <Paper
+          elevation={3}
           sx={{
             p: { xs: 2, sm: 3, md: 4 },
             borderRadius: { xs: 2, md: 3 },
           }}
         >
-          <Stack  spacing={{ xs: 2, sm: 3 }}>
+          <Stack spacing={{ xs: 2, sm: 3 }}>
             <UsersHeader onAdd={handleAdd} />
             <UsersSearch value={search} onChange={setSearch} />
             <UsersTable
@@ -145,10 +146,10 @@ export default function UserList() {
         defaultValues={
           editingUser
             ? {
-              name: editingUser.name,
-              email: editingUser.email,
-              status: editingUser.status,
-            }
+                name: editingUser.name,
+                email: editingUser.email,
+                status: editingUser.status,
+              }
             : undefined
         }
         isEditing={!!editingUser}
@@ -160,6 +161,6 @@ export default function UserList() {
         onCancel={() => setDeleteUserState(null)}
         onConfirm={handleDeleteConfirm}
       />
-    </Container >
+    </Container>
   )
 }
